@@ -10,14 +10,23 @@ const [major, minor, patch, label = "0"] = version
   // split into version parts
   .split(/[.-]/);
 
+const name = "Booking.com Statistics";
+
 export default defineManifest(async (env) => ({
   manifest_version: 3,
-  name:
-    env.mode === "staging"
-      ? "[INTERNAL] CRXJS Power Tools"
-      : "CRXJS Power Tools",
+  name: env.mode === "staging" ? ["[INTERNAL]", name].join(" ") : name,
   // up to four numbers separated by dots
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"
   version_name: version,
+  action: {
+    default_popup: "index.html",
+  },
+  permissions: ["activeTab", "declarativeContent", "storage", "contextMenus"],
+  content_scripts: [
+    {
+      js: ["src/content.tsx"],
+      matches: ["https://www.booking.com/*"],
+    },
+  ],
 }));
