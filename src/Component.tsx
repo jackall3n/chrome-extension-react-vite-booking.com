@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { sum } from "lodash";
 import "./Component.css";
 
+// @ts-ignore
 import AnimatedNumber from "animated-number-react";
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
         <AnimatedNumber
           duration={500}
           value={average}
-          formatValue={(value) =>
+          formatValue={(value: number) =>
             new Intl.NumberFormat("en-GB", {
               currency: "GBP",
               style: "currency",
