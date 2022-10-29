@@ -45,7 +45,7 @@ function App() {
   }, []);
 
   return (
-    <div className="absolute right-0 -top-4 bg-white z-20">
+    <div className="absolute right-0 bg-white mt-3">
       <strong>Average Price: </strong>
       <span>
         <AnimatedNumber

@@ -17,7 +17,7 @@ function getContainer() {
     return document.body;
   }
 
-  return document.getElementById("basiclayout") as HTMLElement;
+  return document.getElementById("ajaxsrwrap") as HTMLElement;
 }
 
 async function render(attempt = 0) {
